@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HashController@create');
+Route::get('/hash', 'HashController@create');
+Route::get('/lookup', 'HashController@lookup');
+
+Route::post('/hash', 'HashController@store');
+Route::post('/lookup', 'HashController@show');

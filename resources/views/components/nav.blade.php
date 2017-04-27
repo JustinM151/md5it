@@ -5,6 +5,17 @@
  * Date: 4/27/17
  * Time: 12:40 AM
  */
+
+$active['hash'] = '';
+$active['lookup'] = '';
+switch($setActive) {
+    case 'hash':
+        $active['hash'] = ' class="active"';
+        break;
+    case 'lookup':
+        $active['lookup'] = ' class="active"';
+        break;
+}
 ?>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -20,16 +31,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{url('/hash')}}">GENERATE MD5 HASH</a></li>
-                <li><a href="{{url('/lookup')}}">LOOKUP HASH</a></li>
+                <li{!! $active['hash'] !!}><a href="{{url('/hash')}}">GENERATE MD5 HASH</a></li>
+                <li{!! $active['lookup'] !!}><a href="{{url('/lookup')}}">LOOKUP MD5 HASH</a></li>
             </ul>
-            <form action="{{url('/search')}}" class="navbar-form navbar-left" role="search" method="post">
-                {{csrf_field()}}
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Quick Search" required>
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
         </div>
     </div>
 </nav>

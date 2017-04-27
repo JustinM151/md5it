@@ -18,6 +18,9 @@
 @yield('nav')
 
 <div class="container">
+    @if($errors->count() > 0)
+        @include('errors.common', ['errors'=>$errors->all()])
+    @endif
     @yield('content')
 </div>
 
