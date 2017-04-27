@@ -8,13 +8,15 @@
 
 $active['hash'] = '';
 $active['lookup'] = '';
-switch($setActive) {
-    case 'hash':
-        $active['hash'] = ' class="active"';
-        break;
-    case 'lookup':
-        $active['lookup'] = ' class="active"';
-        break;
+if(!empty($setActive)) {
+    switch($setActive) {
+        case 'hash':
+            $active['hash'] = ' class="active"';
+            break;
+        case 'lookup':
+            $active['lookup'] = ' class="active"';
+            break;
+    }
 }
 ?>
 <nav class="navbar navbar-inverse">

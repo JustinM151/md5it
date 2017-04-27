@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHashesTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateHashesTable extends Migration
      */
     public function up()
     {
-        Schema::create('hashes', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('text');
-            $table->string('hash',32);
-            $table->dateTime('hashed_at');
-            $table->integer('hashed_times');
-            $table->dateTime('queried_at');
-            $table->integer('queried_times');
+            $table->string('name');
+            $table->string('email');
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateHashesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hashes');
+        Schema::dropIfExists('messages');
     }
 }

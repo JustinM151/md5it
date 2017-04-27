@@ -10,6 +10,7 @@
 <html>
 <head>
     <link href="{{url('css/app.css')}}" rel="stylesheet">
+    <link href="{{url('css/footer.css')}}" rel="stylesheet">
     <title>MD5IT.COM - MD5 Hash Generator and Lookup Utility</title>
 </head>
 
@@ -23,6 +24,8 @@
     @endif
     @yield('content')
 </div>
+
+@include('components.footer')
 
 <script src="{{url('js/app.js')}}"></script>
 </body>

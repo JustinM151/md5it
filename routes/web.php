@@ -17,3 +17,7 @@ Route::get('/lookup', 'HashController@lookup');
 
 Route::post('/hash', 'HashController@store');
 Route::post('/lookup', 'HashController@show');
+
+Route::get('/contact', 'MessageController@create');
+Route::post('/contact', 'MessageController@store');
+Route::get('/thanks', 'MessageController@thanks');
