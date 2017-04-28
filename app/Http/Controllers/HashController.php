@@ -38,17 +38,14 @@ class HashController extends Controller
     public function store(HashValue $request)
     {
         $input = $request->input();
-        $text = $input['text'];
-
-        $hash = Hash::firstOrCreate(['text'=>$text]);
+        //Hash first, THEN query based on the hash since we can't make TEXT columns a unique index
+        $md5 = md5($input['text']);
+        $hash = Hash::firstOrCreate(['hash'=>$md5]); //Queries went from ~4 Seconds +/- to a few ms doing it this way.
+        $hash->hash = $md5;
         $hash->hashed_times+=1;
         $hash->hashed_at = date('Y-m-d H:i:s');
-
-        if(empty($hash->hash)) {
-            $hash->hash = md5($text);
-        }
+        $hash->text = $input['text'];
         $hash->save();
-
         return view('hash')->with('hash',$hash);
     }
 

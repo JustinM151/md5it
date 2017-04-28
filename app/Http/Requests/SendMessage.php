@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Md5it\Services\ThrottleService;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SendMessage extends FormRequest
@@ -9,11 +10,15 @@ class SendMessage extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      *
-     * @return bool
+     * @return mixed
      */
     public function authorize()
     {
-        return true;
+        $throttle = new ThrottleService($this->ip(),3);
+        if($throttle->userCanSendRequest()) {
+            return true;
+        }
+        return redirect()->back()->withErrors(['Easy there turbo! Users can only submit 1 request per 3 seconds.']);
     }
 
     /**
