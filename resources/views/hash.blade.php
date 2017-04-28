@@ -57,7 +57,7 @@
         <div class="col-md-6">
             <h3>About MD5IT.COM</h3>
             <p>MD5IT.COM is a free resource for users to quickly and easily generate MD5 hashes as well as lookup the text values of generated hashes.
-                MD5 has been proven insecure and should not be used for storing passwords to sites containing sensitive data.
+                MD5 has been <a rel="nofollow" href="https://en.wikipedia.org/wiki/MD5">proven insecure</a> and should not be used for storing passwords to sites containing sensitive data.
                 That being said a lot of websites on the internet STILL use MD5 as their password hashing algorithm.</p>
 
             <p>But if you are fine with using MD5, we're fine with providing you the tools to quickly generate it and look it up (to help you troubleshoot your own data).
