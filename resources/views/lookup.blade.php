@@ -65,7 +65,7 @@
                 Rainbow Tables are generally used for cracking password hashes, but in the case of md5it.com, we hope you only use this tool for troubleshooting your own data.</p>
 
             <h3>I got an error telling me to slow down, why?</h3>
-            <p>We throttle user requests to 1 request per second, which should be more than adequate for human use.
+            <p>We throttle user requests to 1 request per 3 seconds, which should be more than adequate for human use.
                 What we do not wan't to do is enable people to write scripts that use our site as a password cracker.
             By limiting consumption to 1 request per second the site remains 100% usable for humans while severely crippling bots.</p>
         </div>
